@@ -11,6 +11,8 @@
 " These options and commands enable some very useful features in Vim, that
 " no user should have to live without.
 
+set t_u7=
+
 " Set 'nocompatible' to ward off unexpected things that your distro might
 " have made, as well as sanely reset options when re-sourcing .vimrc
 set nocompatible
@@ -114,6 +116,19 @@ set notimeout ttimeout ttimeoutlen=200
 " Use <F11> to toggle between 'paste' and 'nopaste'
 set pastetoggle=<F11>
 
+" enable jsx syntax highlighting in .js
+let g:jsx_ext_required=0
+
+" Save as sudo with w!!
+cmap w!! w !sudo tee >/dev/null %
+
+" React
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_args = ['--fix']
+" let g:syntastic_javascript_eslint_exe = 'npm run lint --'
+set autoread
+au VimEnter *.js au BufWritePost .js checktime
+autocmd BufWritePost *.js :checktime
 
 "------------------------------------------------------------
 " Indentation options {{{1
@@ -151,3 +166,4 @@ nnoremap <C-L> :nohl<CR><C-L>
 execute pathogen#infect()
 
 map <C-n> :NERDTreeToggle<CR>
+
