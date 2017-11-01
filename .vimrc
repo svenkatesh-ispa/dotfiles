@@ -130,6 +130,9 @@ set autoread
 au VimEnter *.js au BufWritePost .js checktime
 autocmd BufWritePost *.js :checktime
 
+" Disable annoying vim-go version check
+let g:go_version_warning = 0
+
 "------------------------------------------------------------
 " Indentation options {{{1
 "
