@@ -163,6 +163,8 @@ map Y y$
 " next search
 nnoremap <C-L> :nohl<CR><C-L>
 
+" Map <S-Tab> to tab backwards
+inoremap <S-Tab> <C-d>
 
 "------------------------------------------------------------
 
